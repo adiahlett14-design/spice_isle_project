@@ -83,7 +83,6 @@ require __DIR__ . '/includes/header.php';
     <p>Ready to explore Grenada? Discover breathtaking tours, delicious local cuisine, and unforgettable experiences across the Spice Isle.</p>
     <div class="quick-links">
         <a href="tours.php" class="btn">View Tours</a>
-        <a href="booking.php" class="btn">Book a Tour</a>
         <a href="eats.php" class="btn">Places to Eat</a>
         <a href="contact.php" class="btn">Contact Us</a>
     </div>
