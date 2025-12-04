@@ -7,7 +7,22 @@ require __DIR__.'/includes/header.php';
 
 <link rel="stylesheet" href="css/style.css">
 
-<h1>Places to Eat in Grenada</h1>
+<section class="eats-section">
+    <h1>Places to Eat in Grenada</h1>
+
+    <p style="text-align:center; max-width:700px; margin:0 auto 30px; color:#555;">
+        Grenada is not only famous for its beautiful beaches and lush rainforests, but also for its vibrant culinary scene. 
+        From local spices to fresh seafood, there’s something for every taste. Explore our recommended restaurants and cafes across the island.
+    </p>
+
+    <h2 style="text-align:center; color:#1e88e5; margin-bottom:20px;">Top Dining Tips</h2>
+    <ul style="max-width:700px; margin:0 auto 30px; color:#555; line-height:1.6;">
+        <li>Try the local specialty dishes such as Oil Down, Callaloo soup, and fresh seafood.</li>
+        <li>Visit early for breakfast or brunch to enjoy local pastries and coffee.</li>
+        <li>Many restaurants offer outdoor seating with beautiful views – perfect for photos.</li>
+        <li>Check the hours before visiting – some smaller eateries close early in the evening.</li>
+        <li>Ask the staff for recommendations; locals know the best hidden gems.</li>
+    </ul>
 
 <?php
 try {
@@ -45,5 +60,6 @@ try {
     echo "<p style='text-align:center;color:red;'>Database error: ".$ex->getMessage()."</p>";
 }
 ?>
+</section>
 
 <?php require __DIR__.'/includes/footer.php'; ?>

@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="css/style.css">
+
 <?php
 require __DIR__.'/includes/db.php';
 require __DIR__.'/includes/auth.php';
@@ -6,20 +7,35 @@ require __DIR__.'/includes/auth.php';
 $pageTitle = 'Grenada Tours';
 require __DIR__.'/includes/header.php';
 
-$tours=$pdo->query("SELECT * FROM tours ORDER BY title ASC")->fetchAll();
+$tours = $pdo->query("SELECT * FROM tours ORDER BY title ASC")->fetchAll();
 ?>
 
-<h1>Grenada Tours</h1>
+<section class="tours-section">
+    <h1>Grenada Tours</h1>
+    <p style="text-align:center; max-width:700px; margin:0 auto 30px; color:#555;">
+        Discover the best experiences Grenada has to offer. Choose from our curated tours and enjoy unforgettable moments on the Spice Isle.
+    </p>
 
-<?php foreach($tours as $t): ?>
-<div class="card">
-    <img src="images/img1.jpg">
-    <h2><?= htmlspecialchars($t['title']) ?></h2>
-    <p class="description"><?= htmlspecialchars($t['description']) ?></p>
-    <p class="price"><strong>Cost:</strong> $<?= $t['price'] ?> | <strong>Date:</strong> <?= $t['date'] ?> | <strong>Time:</strong> <?= $t['time'] ?></p>
-    <p><strong>Location:</strong> <?= htmlspecialchars($t['location']) ?> | <strong>Transport:</strong> <?= htmlspecialchars($t['transportation']) ?></p>
-    <a class="btn" href="tour_details.php?id=<?= $t['id'] ?>">View</a>
-</div>
-<?php endforeach; ?>
+    <?php if(!$tours): ?>
+        <p style="text-align:center; color:#d00;">No tours available at the moment. Please check back later.</p>
+    <?php else: ?>
+        <?php foreach($tours as $t): ?>
+            <div class="card">
+                <img src="images/<?= htmlspecialchars($t['image'] ?: 'default_tour.jpg') ?>" alt="<?= htmlspecialchars($t['title']) ?>">
+                <h2><?= htmlspecialchars($t['title']) ?></h2>
+                <p class="description"><?= htmlspecialchars($t['description']) ?></p>
+                <p class="price">
+                    <strong>Cost:</strong> $<?= $t['price'] ?><br>
+                    <strong>Date:</strong> <?= $t['date'] ?> | <strong>Time:</strong> <?= $t['time'] ?>
+                </p>
+                <p>
+                    <strong>Location:</strong> <?= htmlspecialchars($t['location']) ?><br>
+                    <strong>Transport:</strong> <?= htmlspecialchars($t['transportation']) ?>
+                </p>
+                <a class="btn" href="tour_details.php?id=<?= $t['id'] ?>">View Details</a>
+            </div>
+        <?php endforeach; ?>
+    <?php endif; ?>
+</section>
 
 <?php require __DIR__.'/includes/footer.php'; ?>
