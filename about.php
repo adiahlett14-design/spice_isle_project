@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="css/style.css">
 <?php
 require __DIR__ . '/includes/db.php';
 $pageTitle = 'About - Spice Isle Tours';

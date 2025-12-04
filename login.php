@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="css/style.css">
 <?php
 session_start();
 require __DIR__ . '/includes/db.php';
@@ -30,24 +31,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $error = 'Please enter both username and password.';
     }
 }
+
+$pageTitle = 'Login - Spice Isle';
+require __DIR__ . '/includes/header.php';
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>Login - Spice Isle</title>
-<link rel="stylesheet" href="/spice_isle/css/style.css">
-</head>
-<body>
+
 <div class="form-box">
-<h2>Login</h2>
-<?php if($error): ?><p class="error"><?= htmlspecialchars($error) ?></p><?php endif; ?>
-<form method="POST">
-<input type="text" name="username" placeholder="Username" required>
-<input type="password" name="password" placeholder="Password" required>
-<button type="submit">Login</button>
-</form>
-<p>Don't have an account? <a href="register.php">Register here</a></p>
+    <h2>Login</h2>
+    <?php if($error): ?><p class="error"><?= htmlspecialchars($error) ?></p><?php endif; ?>
+    <form method="POST">
+        <input type="text" name="username" placeholder="Username" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <button type="submit">Login</button>
+    </form>
+    <p>Don't have an account? <a href="register.php">Register here</a></p>
 </div>
-</body>
-</html>
+
+<?php require __DIR__ . '/includes/footer.php'; ?>

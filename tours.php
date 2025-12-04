@@ -1,30 +1,24 @@
+<link rel="stylesheet" href="css/style.css">
 <?php
 require __DIR__.'/includes/db.php';
 require __DIR__.'/includes/auth.php';
-$pageTitle='Grenada Tours';
+
+$pageTitle = 'Grenada Tours';
 require __DIR__.'/includes/header.php';
 
-$tours = $pdo->query("SELECT * FROM tours ORDER BY title ASC")->fetchAll();
+$tours=$pdo->query("SELECT * FROM tours ORDER BY title ASC")->fetchAll();
 ?>
-<link rel="stylesheet" href="css/style.css">
 
 <h1>Grenada Tours</h1>
 
 <?php foreach($tours as $t): ?>
-<div class="card" style="display:flex; gap:15px;">
-    <img src="images/img1.jpg" style="width:180px;height:130px;object-fit:cover;border-radius:8px;">
-    <div style="flex:1;">
-        <h2><?= htmlspecialchars($t['title']) ?></h2>
-        <p><?= htmlspecialchars($t['description']) ?></p>
-        <p>
-            <strong>Cost:</strong> $<?= htmlspecialchars($t['price']) ?> |
-            <strong>Date:</strong> <?= htmlspecialchars($t['date']) ?> |
-            <strong>Time:</strong> <?= htmlspecialchars($t['time']) ?><br>
-            <strong>Location:</strong> <?= htmlspecialchars($t['location']) ?><br>
-            <strong>Transport:</strong> <?= htmlspecialchars($t['transportation']) ?><br>
-        </p>
-        <a href="tour_details.php?id=<?= $t['id'] ?>" class="btn">View</a>
-    </div>
+<div class="card">
+    <img src="images/img1.jpg">
+    <h2><?= htmlspecialchars($t['title']) ?></h2>
+    <p class="description"><?= htmlspecialchars($t['description']) ?></p>
+    <p class="price"><strong>Cost:</strong> $<?= $t['price'] ?> | <strong>Date:</strong> <?= $t['date'] ?> | <strong>Time:</strong> <?= $t['time'] ?></p>
+    <p><strong>Location:</strong> <?= htmlspecialchars($t['location']) ?> | <strong>Transport:</strong> <?= htmlspecialchars($t['transportation']) ?></p>
+    <a class="btn" href="tour_details.php?id=<?= $t['id'] ?>">View</a>
 </div>
 <?php endforeach; ?>
 
