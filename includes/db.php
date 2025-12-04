@@ -1,6 +1,6 @@
 <?php
 $host = 'localhost';
-$db   = 'spice_isle'; // your database name
+$db   = 'spice_isle'; // database name
 $user = 'root';       // XAMPP default
 $pass = '';           // XAMPP default
 $charset = 'utf8mb4';

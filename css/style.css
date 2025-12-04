@@ -5,24 +5,24 @@ body {
     color: #333;
 }
 
-h1 {
+h1, h2 {
     text-align: center;
     margin-bottom: 20px;
 }
 
-.quick-links {
+.quick-links, .links {
     text-align: center;
     margin-bottom: 30px;
 }
 
-.quick-links a {
+.quick-links a, .links a {
     margin: 0 10px;
     text-decoration: none;
     color: #007BFF;
     font-weight: bold;
 }
 
-.quick-links a:hover {
+.quick-links a:hover, .links a:hover {
     text-decoration: underline;
 }
 
@@ -34,28 +34,30 @@ h1 {
     max-width: 1200px;
 }
 
-.product-card {
+.product-card, .card, .eat-card {
     background-color: #fff;
     padding: 15px;
     border-radius: 8px;
     box-shadow: 0 3px 8px rgba(0,0,0,0.1);
     transition: transform 0.2s;
+    margin: 20px auto;
+    max-width: 900px;
 }
 
-.product-card:hover {
+.product-card:hover, .card:hover, .eat-card:hover {
     transform: translateY(-5px);
 }
 
-.product-card h3 {
+.product-card h3, .card h1, .eat-card h2 {
     margin-top: 0;
 }
 
-.product-card .price {
+.product-card .price, .card .price, .eat-card .price {
     color: #28a745;
     font-weight: bold;
 }
 
-.product-card .description {
+.product-card .description, .card .description, .eat-card .description {
     font-size: 0.9em;
     color: #555;
 }
@@ -63,4 +65,61 @@ h1 {
 .product-card .stock {
     font-size: 0.8em;
     color: #888;
+}
+
+.form-box {
+    max-width: 550px;
+    margin: 20px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.form-box input, .form-box button, .form-box textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.form-box img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.error {
+    color: #d00;
+    font-weight: bold;
+}
+
+.success {
+    color: #28a745;
+    font-weight: bold;
+}
+
+.card img, .eat-card img {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.btn {
+    padding: 8px 12px;
+    background: #1e88e5;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.logged-in {
+    text-align: right;
+    font-size: 0.9em;
 }
