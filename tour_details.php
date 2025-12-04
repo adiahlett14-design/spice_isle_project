@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="css/style.css">
+
 <?php
 require __DIR__.'/includes/db.php';
 require __DIR__.'/includes/auth.php';
@@ -19,14 +21,16 @@ if (!$t) {
     require __DIR__.'/includes/footer.php';
     exit;
 }
+
+// Manually assign images like on tours.php
+$images = ['images/img2.jpg', 'images/img1.jpg'];
+$imageSrc = $images[$tour_id % count($images)]; // rotate based on ID
 ?>
 
 <h1><?= htmlspecialchars($t['title']) ?></h1>
 
 <div class="card">
-    <?php if (!empty($t['image'])): ?>
-        <img src="images/tours/<?= htmlspecialchars($t['image']) ?>" alt="<?= htmlspecialchars($t['title']) ?>">
-    <?php endif; ?>
+    <img src="<?= $imageSrc ?>" alt="<?= htmlspecialchars($t['title']) ?>">
     <p><?= htmlspecialchars($t['description']) ?></p>
     <p>
         <strong>Cost:</strong> $<?= htmlspecialchars($t['price']) ?><br>

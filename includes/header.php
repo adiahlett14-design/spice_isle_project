@@ -18,7 +18,6 @@ if (session_status() === PHP_SESSION_NONE) {
         <a href="about.php">About</a>
         <a href="tours.php">Tours</a>
         <a href="eats.php">Places to Eat</a>
-        <a href="booking.php">Booking</a>
         <a href="contact.php">Contact</a>
         <?php if(!empty($_SESSION['user_id'])): ?>
             <a href="logout.php">Logout</a>

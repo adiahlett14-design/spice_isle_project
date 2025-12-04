@@ -7,6 +7,7 @@ require __DIR__.'/includes/auth.php';
 $pageTitle = 'Grenada Tours';
 require __DIR__.'/includes/header.php';
 
+// Fetch tours from database but ignore the 'image' column
 $tours = $pdo->query("SELECT * FROM tours ORDER BY title ASC")->fetchAll();
 ?>
 
@@ -19,9 +20,14 @@ $tours = $pdo->query("SELECT * FROM tours ORDER BY title ASC")->fetchAll();
     <?php if(!$tours): ?>
         <p style="text-align:center; color:#d00;">No tours available at the moment. Please check back later.</p>
     <?php else: ?>
-        <?php foreach($tours as $t): ?>
+        <?php foreach($tours as $index => $t): ?>
             <div class="card">
-                <img src="images/<?= htmlspecialchars($t['image'] ?: 'default_tour.jpg') ?>" alt="<?= htmlspecialchars($t['title']) ?>">
+                <!-- Manually assign images -->
+                <?php
+                $imageSrc = ($index % 2 === 0) ? 'images/img1.jpg' : 'images/img2.jpg';
+                ?>
+                <img src="<?= $imageSrc ?>" alt="<?= htmlspecialchars($t['title']) ?>">
+                
                 <h2><?= htmlspecialchars($t['title']) ?></h2>
                 <p class="description"><?= htmlspecialchars($t['description']) ?></p>
                 <p class="price">
