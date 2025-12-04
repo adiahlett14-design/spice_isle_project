@@ -6,12 +6,13 @@ require __DIR__.'/includes/header.php';
 
 $tours = $pdo->query("SELECT * FROM tours ORDER BY title ASC")->fetchAll();
 ?>
+<link rel="stylesheet" href="css/style.css">
 
 <h1>Grenada Tours</h1>
 
 <?php foreach($tours as $t): ?>
 <div class="card" style="display:flex; gap:15px;">
-    <img src="images/tours/<?= htmlspecialchars($t['image']) ?>" style="width:180px;height:130px;object-fit:cover;border-radius:8px;">
+    <img src="https://www.sandals.co.uk/blog/content/images/2021/09/2-View-from-Saint-George_s-in-Grenada.jpg" style="width:180px;height:130px;object-fit:cover;border-radius:8px;">
     <div style="flex:1;">
         <h2><?= htmlspecialchars($t['title']) ?></h2>
         <p><?= htmlspecialchars($t['description']) ?></p>
